@@ -12,7 +12,7 @@ public class MyGdxGame extends ApplicationAdapter {
 	public static final int WIDTH = 480;
 	public static final int HEIGHT = 800;
 
-	public static final String TITLE = "Flappy Bird";
+	public static final String TITLE = "VIA";
 	private GameStateManager gsm;
 	private SpriteBatch batch;
 	
@@ -20,7 +20,7 @@ public class MyGdxGame extends ApplicationAdapter {
 	public void create () {
 		batch = new SpriteBatch();
 		gsm = new GameStateManager();
-		Gdx.gl.glClearColor(1, 0, 0, 1);
+		Gdx.gl.glClearColor(1, 1, 0, 1);
 		gsm.push(new MenuState(gsm));
 	}
 

@@ -23,10 +23,9 @@ public class Bird {
     public void update(float dt){
 
         //going right
-
         velocity.add(RIGHT, 0, 0);
         if (position.x > MyGdxGame.WIDTH)
-            position.x = -25;
+            position.x = -21;
         velocity.scl(dt);
         position.add(SPEED, 0, 0);
 
