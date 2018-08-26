@@ -10,6 +10,10 @@ import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.sprites.Bird;
 import com.mygdx.game.sprites.BuildingsOne;
 import com.mygdx.game.sprites.Tube;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 import static com.mygdx.game.sprites.Tube.TUBE_WIDTH;
 
@@ -35,11 +39,12 @@ public class PlayState extends State {
         //cam.setToOrtho(false, MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
         //zooms in to the bird
         //cam.setToOrtho(false, MyGdxGame.WIDTH / 2, MyGdxGame.HEIGHT / 2);
-        bg = new Texture("background2.png");
+        bg = new Texture("Orbackground.png");
         batch = new SpriteBatch();
         font = new BitmapFont();
         font.setColor(Color.WHITE);
         font.getData().setScale(1, 1);
+
         //zoom in to background
         cam.setToOrtho(false, bg.getWidth(), bg.getHeight());
         //tube = new Tube(100);
@@ -89,7 +94,11 @@ public class PlayState extends State {
 
 
     }
-    String va = "Fuck";
+
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MMM d, y");
+    LocalDateTime now = LocalDateTime.now();
+    //need to add a date so like tomorrow 
+    String va = "VALID UNTIL \n" + dtf.format(now) +" 2:59 AM";
     @Override
     public void render(SpriteBatch sb) {
 
@@ -108,7 +117,7 @@ public class PlayState extends State {
 
         sb.end();
         batch.begin();
-        font.draw(batch, va, 100, 450);
+        font.draw(batch, va, 100, 700);
         batch.end();
     }
 
