@@ -35,7 +35,7 @@ public class PlayState extends State {
     public PlayState(GameStateManager gsm) {
         super(gsm);
         mb1 = new BuildingsOne(0, 0);
-        bird = new Bird(0, 300);
+        bird = new Bird(0, 275);
         //cam.setToOrtho(false, MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
         //zooms in to the bird
         //cam.setToOrtho(false, MyGdxGame.WIDTH / 2, MyGdxGame.HEIGHT / 2);
@@ -97,7 +97,7 @@ public class PlayState extends State {
 
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MMM d, y");
     LocalDateTime now = LocalDateTime.now();
-    //need to add a date so like tomorrow 
+    //need to add a date so like tomorrow
     String va = "VALID UNTIL \n" + dtf.format(now) +" 2:59 AM";
     @Override
     public void render(SpriteBatch sb) {

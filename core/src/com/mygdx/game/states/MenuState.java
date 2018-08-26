@@ -10,8 +10,9 @@ public class MenuState extends State {
     //private Texture playBtn;
     public MenuState(GameStateManager gsm) {
         super(gsm);
-        cam.setToOrtho(false, MyGdxGame.WIDTH / 2, MyGdxGame.HEIGHT / 2);
-        background = new Texture("BBG.png");
+        //cam.setToOrtho(false, MyGdxGame.WIDTH / 2, MyGdxGame.HEIGHT / 2);
+        background = new Texture("inUse.png");
+        cam.setToOrtho(false, background.getWidth(), background.getHeight());
         //playBtn = new Texture("playbtn.png");
     }
 
