@@ -32,15 +32,16 @@ public class PlayState extends State {
         super(gsm);
         mb1 = new BuildingsOne(0, 0);
         bird = new Bird(0, 300);
+        //cam.setToOrtho(false, MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
         //zooms in to the bird
-        cam.setToOrtho(false, MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
         //cam.setToOrtho(false, MyGdxGame.WIDTH / 2, MyGdxGame.HEIGHT / 2);
         bg = new Texture("background2.png");
         batch = new SpriteBatch();
         font = new BitmapFont();
         font.setColor(Color.WHITE);
         font.getData().setScale(1, 1);
-        //cam.setToOrtho(false, bg.getWidth(), bg.getHeight());
+        //zoom in to background
+        cam.setToOrtho(false, bg.getWidth(), bg.getHeight());
         //tube = new Tube(100);
 //        tubes = new Array<Tube>();
 //
@@ -54,11 +55,11 @@ public class PlayState extends State {
         if(Gdx.input.justTouched()){
             //changes the background color
             if(bgc == false){
-                Gdx.gl.glClearColor(1, 0, 0, 1);
+                Gdx.gl.glClearColor(173/255f, 231/255f, 255/255f, 1);
                 bgc = true;
             }
              else{
-                Gdx.gl.glClearColor(1, 1, 0, 1);
+                Gdx.gl.glClearColor(33/255f, 61/255f, 90/255f, 1);
                 bgc = false;
             }
             //bird.jump();
