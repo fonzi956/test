@@ -17,9 +17,10 @@ public class PlayState extends State {
     private Bird bird;
     private Buildings mb1;
     private Buildings mb2;
+    private Buildings mb3;
+    private Buildings mb4;
     private Texture bg;
     private boolean bgc = false;
-    //private Tube tube;
 
     SpriteBatch batch;
     BitmapFont font;
@@ -29,8 +30,10 @@ public class PlayState extends State {
         super(gsm);
         mb1 = new Buildings(0, 330, "bmb.png");
         mb2 = new Buildings(0, 329, "sbg.png");
+        mb3 = new Buildings(0, 333, "blueb.png");
+        mb4 = new Buildings(0, 411, "clouds.png");
         bird = new Bird(0, 324);
-        cam.setToOrtho(false, MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
+        //cam.setToOrtho(false, MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
         //zooms in to the bird
         //cam.setToOrtho(false, MyGdxGame.WIDTH / 2, MyGdxGame.HEIGHT / 2);
         bg = new Texture("Orbackground.png");
@@ -72,6 +75,8 @@ public class PlayState extends State {
         handleInput();
         mb1.update(dt);
         mb2.update(dt);
+        mb3.update(dt);
+        mb4.update(dt);
         bird.update(dt);
         //cam.position.x = bird.getPosition().x + 80;
 
@@ -89,6 +94,14 @@ public class PlayState extends State {
 
         if(cam.position.x - (cam.viewportWidth / 2) > mb2.getPosition().x + mb2.getTexture().getWidth()){
             mb2.reposition(mb2.getPosition().x + 1500, mb2.getPosition().y);
+        }
+
+        if(cam.position.x - (cam.viewportWidth / 2) > mb3.getPosition().x + mb3.getTexture().getWidth()){
+            mb3.reposition(mb3.getPosition().x + 1500, mb3.getPosition().y);
+        }
+
+        if(cam.position.x - (cam.viewportWidth / 2) > mb4.getPosition().x + mb4.getTexture().getWidth()){
+            mb4.reposition(mb4.getPosition().x + 1500, mb4.getPosition().y);
         }
 
 //        if(cam.position.x - (cam.viewportWidth / 2) > bird.getPosition().x + bird.getTexture().getWidth()){
@@ -116,6 +129,8 @@ public class PlayState extends State {
 //            sb.draw(tube.getBottomTube(), tube.getPosBotTube().x, tube.getPosBotTube().y);
 //        }
 
+        sb.draw(mb4.getTexture(), mb4.getPosition().x, mb4.getPosition().y);
+        sb.draw(mb3.getTexture(), mb3.getPosition().x, mb3.getPosition().y);
         sb.draw(mb2.getTexture(), mb2.getPosition().x, mb2.getPosition().y);
         sb.draw(mb1.getTexture(), mb1.getPosition().x, mb1.getPosition().y);
         sb.draw(bird.getTexture(), bird.getPosition().x, bird.getPosition().y);
