@@ -5,18 +5,14 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.Array;
 import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.sprites.Bird;
 import com.mygdx.game.sprites.Buildings;
-import com.mygdx.game.sprites.Tube;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class PlayState extends State {
-    private  static final int TUBE_SPACING = 125;
-    private static final int TUBE_COUNT = 4;
 
     private Bird bird;
     private Buildings mb1;
@@ -28,7 +24,6 @@ public class PlayState extends State {
     SpriteBatch batch;
     BitmapFont font;
 
-    private Array<Tube> tubes;
 
     public PlayState(GameStateManager gsm) {
         super(gsm);
