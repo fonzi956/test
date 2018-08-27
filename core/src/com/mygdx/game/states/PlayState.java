@@ -9,6 +9,7 @@ import com.badlogic.gdx.utils.Array;
 import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.sprites.Bird;
 import com.mygdx.game.sprites.BuildingsOne;
+import com.mygdx.game.sprites.BuildingsTwo;
 import com.mygdx.game.sprites.Tube;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -23,6 +24,7 @@ public class PlayState extends State {
 
     private Bird bird;
     private BuildingsOne mb1;
+    private BuildingsTwo mb2;
     private Texture bg;
     private boolean bgc = false;
     //private Tube tube;
@@ -34,9 +36,10 @@ public class PlayState extends State {
 
     public PlayState(GameStateManager gsm) {
         super(gsm);
-        mb1 = new BuildingsOne(0, 0);
+        mb1 = new BuildingsOne(0, 275);
+        mb2 = new BuildingsTwo(0, 275);
         bird = new Bird(0, 275);
-        //cam.setToOrtho(false, MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
+        cam.setToOrtho(false, MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
         //zooms in to the bird
         //cam.setToOrtho(false, MyGdxGame.WIDTH / 2, MyGdxGame.HEIGHT / 2);
         bg = new Texture("Orbackground.png");
@@ -75,6 +78,7 @@ public class PlayState extends State {
     public void update(float dt) {
         handleInput();
         mb1.update(dt);
+        mb2.update(dt);
         bird.update(dt);
         //cam.position.x = bird.getPosition().x + 80;
 
@@ -88,6 +92,10 @@ public class PlayState extends State {
 
         if(cam.position.x - (cam.viewportWidth / 2) > mb1.getPosition().x + mb1.getTexture().getWidth()){
             mb1.reposition(mb1.getPosition().x + 1500, mb1.getPosition().y);
+        }
+
+        if(cam.position.x - (cam.viewportWidth / 2) > mb2.getPosition().x + mb2.getTexture().getWidth()){
+            mb2.reposition(mb2.getPosition().x + 1500, mb2.getPosition().y);
         }
 
         cam.update();
@@ -104,14 +112,15 @@ public class PlayState extends State {
 
         sb.setProjectionMatrix(cam.combined);
         sb.begin();
-
         sb.draw(bg, cam.position.x - (cam.viewportWidth / 2), 0);
 //        for (Tube tube : tubes) {
 //            sb.draw(tube.getTopTube(), tube.getPosTopTube().x, tube.getPosTopTube().y);
 //            sb.draw(tube.getBottomTube(), tube.getPosBotTube().x, tube.getPosBotTube().y);
 //        }
-        sb.draw(bird.getTexture(), bird.getPosition().x, bird.getPosition().y);
+
+        sb.draw(mb2.getTexture(), mb2.getPosition().x, mb2.getPosition().y);
         sb.draw(mb1.getTexture(), mb1.getPosition().x, mb1.getPosition().y);
+        sb.draw(bird.getTexture(), bird.getPosition().x, bird.getPosition().y);
         //sb.draw(tube.getTopTube(), tube.getPosTopTube().x, tube.getPosTopTube().y);
         //sb.draw(tube.getBottomTube(), tube.getPosBotTube().x, tube.getPosBotTube().y);
 
