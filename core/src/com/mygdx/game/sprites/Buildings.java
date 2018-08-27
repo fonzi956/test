@@ -2,9 +2,10 @@ package com.mygdx.game.sprites;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
+import com.mygdx.game.MyGdxGame;
 
-public class BuildingsTwo {
-
+public class Buildings {
     private static final int RIGHT = 1;
     private static final int SPEED = -2;
     private static final int left = -1;
@@ -13,13 +14,13 @@ public class BuildingsTwo {
     private static final int GRAVITY = -15;
     private Vector2 position;
     private Vector2 velocity;
+    private Texture buildingone;
 
-    private Texture buildingtwo;
-
-    public BuildingsTwo(float x, float y){
+    public Buildings(float x, float y, String fil){
         position = new Vector2(x, y);
         velocity = new Vector2(0, 0);
-        buildingtwo = new Texture("sbg.png");
+        //String fil = "bmb.png";
+        buildingone = new Texture(fil);
     }
 
     public void update(float dt){
@@ -56,11 +57,12 @@ public class BuildingsTwo {
     }
 
     public Texture getTexture() {
-        return buildingtwo;
+        return buildingone;
     }
 
     public void reposition(float x, float y){
         position.set(x, y);
     }
+
 
 }

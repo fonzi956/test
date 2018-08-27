@@ -6,7 +6,7 @@ import com.mygdx.game.MyGdxGame;
 
 public class Bird {
     private static final int RIGHT = 1;
-    private static final int SPEED = 2;
+    private static final int SPEED = 3;
     private static final int MOVEMENT = 100;
     private static final int GRAVITY = -15;
     private Vector3 position;

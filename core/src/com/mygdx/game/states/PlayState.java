@@ -8,23 +8,19 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Array;
 import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.sprites.Bird;
-import com.mygdx.game.sprites.BuildingsOne;
-import com.mygdx.game.sprites.BuildingsTwo;
+import com.mygdx.game.sprites.Buildings;
 import com.mygdx.game.sprites.Tube;
-import java.text.SimpleDateFormat;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-
-import static com.mygdx.game.sprites.Tube.TUBE_WIDTH;
 
 public class PlayState extends State {
     private  static final int TUBE_SPACING = 125;
     private static final int TUBE_COUNT = 4;
 
     private Bird bird;
-    private BuildingsOne mb1;
-    private BuildingsTwo mb2;
+    private Buildings mb1;
+    private Buildings mb2;
     private Texture bg;
     private boolean bgc = false;
     //private Tube tube;
@@ -36,8 +32,8 @@ public class PlayState extends State {
 
     public PlayState(GameStateManager gsm) {
         super(gsm);
-        mb1 = new BuildingsOne(0, 330);
-        mb2 = new BuildingsTwo(0, 329);
+        mb1 = new Buildings(0, 330, "bmb.png");
+        mb2 = new Buildings(0, 329, "sbg.png");
         bird = new Bird(0, 324);
         cam.setToOrtho(false, MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
         //zooms in to the bird
@@ -57,6 +53,8 @@ public class PlayState extends State {
 //            tubes.add(new Tube(i * (TUBE_SPACING + TUBE_WIDTH)));
 //        }
     }
+
+
 
     @Override
     protected void handleInput() {
@@ -110,7 +108,8 @@ public class PlayState extends State {
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MMM d, y");
     LocalDateTime now = LocalDateTime.now();
     //need to add a date so like tomorrow
-    String va = "VALID UNTIL \n" + dtf.format(now) +" 2:59 AM";
+    String va = "VALID UNTIL";
+    String ti = "" + dtf.format(now) +" 2:59 AM";
     @Override
     public void render(SpriteBatch sb) {
 
@@ -131,6 +130,7 @@ public class PlayState extends State {
         sb.end();
         batch.begin();
         font.draw(batch, va, 100, 700);
+        font.draw(batch, ti, 100, 670);
         batch.end();
     }
 
