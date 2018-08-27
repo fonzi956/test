@@ -36,9 +36,9 @@ public class PlayState extends State {
 
     public PlayState(GameStateManager gsm) {
         super(gsm);
-        mb1 = new BuildingsOne(0, 275);
-        mb2 = new BuildingsTwo(0, 275);
-        bird = new Bird(0, 275);
+        mb1 = new BuildingsOne(0, 330);
+        mb2 = new BuildingsTwo(0, 329);
+        bird = new Bird(0, 324);
         cam.setToOrtho(false, MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
         //zooms in to the bird
         //cam.setToOrtho(false, MyGdxGame.WIDTH / 2, MyGdxGame.HEIGHT / 2);
@@ -97,6 +97,10 @@ public class PlayState extends State {
         if(cam.position.x - (cam.viewportWidth / 2) > mb2.getPosition().x + mb2.getTexture().getWidth()){
             mb2.reposition(mb2.getPosition().x + 1500, mb2.getPosition().y);
         }
+
+//        if(cam.position.x - (cam.viewportWidth / 2) > bird.getPosition().x + bird.getTexture().getWidth()){
+//            bird.reposition(mb2.getPosition().x + 1500, bird.getPosition().y);
+//        }
 
         cam.update();
 

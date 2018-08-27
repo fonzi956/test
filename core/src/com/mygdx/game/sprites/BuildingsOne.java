@@ -20,7 +20,7 @@ public class BuildingsOne {
     public BuildingsOne(float x, float y){
         position = new Vector2(x, y);
         velocity = new Vector2(0, 0);
-        buildingone = new Texture("mbg.png");
+        buildingone = new Texture("bmb.png");
     }
 
     public void update(float dt){
