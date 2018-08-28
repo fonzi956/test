@@ -42,7 +42,7 @@ public class PlayState extends State {
         batch = new SpriteBatch();
         font = new BitmapFont();
         font.setColor(Color.WHITE);
-        font.getData().setScale(1, 1);
+        font.getData().setScale(1.2f);
 
         //zoom in to background
         cam.setToOrtho(false, bg.getWidth(), bg.getHeight());
