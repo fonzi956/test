@@ -5,6 +5,8 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.sprites.Bird;
 import com.mygdx.game.sprites.Buildings;
@@ -44,6 +46,7 @@ public class PlayState extends State {
 
         //zoom in to background
         cam.setToOrtho(false, bg.getWidth(), bg.getHeight());
+
         //tube = new Tube(100);
 //        tubes = new Array<Tube>();
 //
@@ -132,7 +135,9 @@ public class PlayState extends State {
         sb.draw(mb4.getTexture(), mb4.getPosition().x, mb4.getPosition().y);
         sb.draw(mb3.getTexture(), mb3.getPosition().x, mb3.getPosition().y);
         sb.draw(mb2.getTexture(), mb2.getPosition().x, mb2.getPosition().y);
-        sb.draw(mb1.getTexture(), mb1.getPosition().x, mb1.getPosition().y);
+        if(bgc == false){
+            sb.draw(mb1.getTexture(), mb1.getPosition().x, mb1.getPosition().y);
+        }
         sb.draw(bird.getTexture(), bird.getPosition().x, bird.getPosition().y);
         //sb.draw(tube.getTopTube(), tube.getPosTopTube().x, tube.getPosTopTube().y);
         //sb.draw(tube.getBottomTube(), tube.getPosBotTube().x, tube.getPosBotTube().y);
@@ -146,6 +151,11 @@ public class PlayState extends State {
 
     @Override
     public void dispose() {
+        bg.dispose();
+        mb1.dispose();
+        mb2.dispose();
+        mb3.dispose();
+        mb4.dispose();
 
     }
 }

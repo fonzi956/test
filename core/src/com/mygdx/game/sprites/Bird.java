@@ -53,4 +53,6 @@ public class Bird {
         position.set(x, y, 0);
     }
 
+    public void dispose(){ bird.dispose(); }
+
 }

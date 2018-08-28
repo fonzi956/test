@@ -21,6 +21,7 @@ public class Buildings {
         velocity = new Vector2(0, 0);
         //String fil = "bmb.png";
         buildingone = new Texture(fil);
+
     }
 
     public void update(float dt){
@@ -56,13 +57,14 @@ public class Buildings {
         return position;
     }
 
-    public Texture getTexture() {
-        return buildingone;
-    }
+    public Texture getTexture() { return buildingone; }
+
 
     public void reposition(float x, float y){
         position.set(x, y);
     }
+
+    public void dispose(){ buildingone.dispose(); }
 
 
 
