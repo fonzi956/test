@@ -40,9 +40,9 @@ public class PlayState extends State {
         //cam.setToOrtho(false, MyGdxGame.WIDTH / 2, MyGdxGame.HEIGHT / 2);
         bg = new Texture("Orbackground.png");
         batch = new SpriteBatch();
-        font = new BitmapFont();
+        font = new BitmapFont(Gdx.files.internal("myfont.fnt"));
         font.setColor(Color.WHITE);
-        font.getData().setScale(1.2f);
+        //font.getData().setScale(1.2f);
 
         //zoom in to background
         cam.setToOrtho(false, bg.getWidth(), bg.getHeight());
@@ -116,17 +116,17 @@ public class PlayState extends State {
 
     }
 
-    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MMM d, y");
-    LocalDateTime now = LocalDateTime.now();
+    //DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MMM d, y");
+    //LocalDateTime now = LocalDateTime.now();
     //need to add a date so like tomorrow
     String va = "VALID UNTIL";
-    String ti = "" + dtf.format(now) +" 2:59 AM";
+    String ti = "Aug 28, 2018 2:59 AM";
     @Override
     public void render(SpriteBatch sb) {
 
         sb.setProjectionMatrix(cam.combined);
         sb.begin();
-        sb.draw(bg, cam.position.x - (cam.viewportWidth / 2), 0);
+        sb.draw(bg, 0,0);
 //        for (Tube tube : tubes) {
 //            sb.draw(tube.getTopTube(), tube.getPosTopTube().x, tube.getPosTopTube().y);
 //            sb.draw(tube.getBottomTube(), tube.getPosBotTube().x, tube.getPosBotTube().y);
@@ -144,8 +144,12 @@ public class PlayState extends State {
 
         sb.end();
         batch.begin();
+        //desktop
         font.draw(batch, va, 100, 700);
         font.draw(batch, ti, 100, 670);
+        //phone
+//        font.draw(batch, va, 100, 700);
+//        font.draw(batch, ti, 100, 670);
         batch.end();
     }
 
