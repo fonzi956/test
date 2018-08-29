@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
-import java.util.Date;
+import java.util.*;
 
 public class PlayState extends State {
 
@@ -26,6 +26,9 @@ public class PlayState extends State {
     private Buildings mb3;
     private Buildings mb4;
     private Texture bg;
+    private String va;
+    private String mn;
+    private String ti;
     private boolean bgc = false;
 
     SpriteBatch batch;
@@ -34,6 +37,15 @@ public class PlayState extends State {
 
     public PlayState(GameStateManager gsm) {
         super(gsm);
+
+        Date dt = new Date();
+        Calendar c = Calendar.getInstance();
+        c.setTime(dt);
+        c.add(Calendar.DATE, 1);
+        mn = new SimpleDateFormat("MMM dd, yyyy").format(c.getTime());
+
+        va = "VALID UNTIL";
+        ti = mn + " 2:59 AM";
         mb1 = new Buildings(0, 330, "bmb.png");
         mb2 = new Buildings(0, 329, "sbg.png");
         mb3 = new Buildings(0, 333, "blueb.png");
@@ -120,14 +132,9 @@ public class PlayState extends State {
 
     }
 
-    //DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MMM d, y");
-    //LocalDateTime now = LocalDateTime.now();
-    //need to add a date so like tomorrow
-    Calendar c = Calendar.getInstance();
-    String mn = new SimpleDateFormat("MMM dd, yyyy").format(c.getTime());
-    String va = "VALID UNTIL";
-    //Date date = new Date(TimeUtils.millis());
-    String ti = mn + " 2:59 AM";
+
+
+
     @Override
     public void render(SpriteBatch sb) {
 
