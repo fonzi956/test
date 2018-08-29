@@ -7,12 +7,16 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.TimeUtils;
 import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.sprites.Bird;
 import com.mygdx.game.sprites.Buildings;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
 
 public class PlayState extends State {
 
@@ -119,8 +123,11 @@ public class PlayState extends State {
     //DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MMM d, y");
     //LocalDateTime now = LocalDateTime.now();
     //need to add a date so like tomorrow
+    Calendar c = Calendar.getInstance();
+    String mn = new SimpleDateFormat("MMM dd, yyyy").format(c.getTime());
     String va = "VALID UNTIL";
-    String ti = "Aug 28, 2018 2:59 AM";
+    //Date date = new Date(TimeUtils.millis());
+    String ti = mn + " 2:59 AM";
     @Override
     public void render(SpriteBatch sb) {
 
@@ -145,11 +152,11 @@ public class PlayState extends State {
         sb.end();
         batch.begin();
         //desktop
-        font.draw(batch, va, 100, 700);
-        font.draw(batch, ti, 100, 670);
-        //phone
 //        font.draw(batch, va, 100, 700);
 //        font.draw(batch, ti, 100, 670);
+        //phone
+        font.draw(batch, va, 100, 1050);
+        font.draw(batch, ti, 100, 1025);
         batch.end();
     }
 
