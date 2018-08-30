@@ -33,6 +33,7 @@ public class PlayState extends State {
 
     SpriteBatch batch;
     BitmapFont font;
+    BitmapFont bfont;
 
 
     public PlayState(GameStateManager gsm) {
@@ -57,6 +58,8 @@ public class PlayState extends State {
         bg = new Texture("Orbackground.png");
         batch = new SpriteBatch();
         font = new BitmapFont(Gdx.files.internal("myfont.fnt"));
+        bfont = new BitmapFont(Gdx.files.internal("myBlodfont.fnt"));
+        bfont.setColor(Color.WHITE);
         font.setColor(Color.WHITE);
         //font.getData().setScale(1.2f);
 
@@ -162,8 +165,8 @@ public class PlayState extends State {
 //        font.draw(batch, va, 100, 700);
 //        font.draw(batch, ti, 100, 670);
         //phone
-        font.draw(batch, va, 100, 1050);
-        font.draw(batch, ti, 100, 1025);
+        font.draw(batch, va, 235, 1063);
+        bfont.draw(batch, ti, 85, 1024);
         batch.end();
     }
 
