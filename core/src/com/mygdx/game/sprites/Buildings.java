@@ -7,19 +7,19 @@ import com.mygdx.game.MyGdxGame;
 
 public class Buildings {
     //private static final int RIGHT = 1;
-    private static int SPEED;
     private static final int left = -1;
-    //private static final int SPEED = -2;
+    private static final int SPEED = -5;
     private static final int MOVEMENT = 100;
     private static final int GRAVITY = -15;
     private Vector2 position;
     private Vector2 velocity;
     private Texture buildingone;
     public float startX;
+    public boolean isfaster;
 
-    public Buildings(float x, float y, String fil, int speed){
+    public Buildings(float x, float y, String fil, boolean faster){
         startX = x;
-        SPEED = speed;
+        isfaster = faster;
         position = new Vector2(x, y);
         velocity = new Vector2(0, 0);
         //String fil = "bmb.png";
@@ -43,7 +43,9 @@ public class Buildings {
 //
 //            position.x = MyGdxGame.WIDTH;
         velocity.scl(dt);
-        position.add(SPEED, 0);
+        if (isfaster == true)
+            position.add(SPEED, 0);
+        else position.add(-3, 0);
 
 
 //        if (position.y > 0)

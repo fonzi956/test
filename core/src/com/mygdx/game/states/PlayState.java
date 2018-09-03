@@ -38,6 +38,7 @@ public class PlayState extends State {
     private String ti;
     private boolean bgc = false;
 
+
     SpriteBatch batch;
     BitmapFont font;
     BitmapFont bfont;
@@ -51,21 +52,20 @@ public class PlayState extends State {
         c.setTime(dt);
         c.add(Calendar.DATE, 1);
         mn = new SimpleDateFormat("MMM dd, yyyy").format(c.getTime());
-
         va = "VALID UNTIL";
         ti = mn + " 2:59 AM";
         bg = new Texture("Orbackground.png");
-        mb1 = new Buildings(bg.getWidth() + 1200, 330, "tower.png", -3);
-        mb2 = new Buildings(bg.getWidth() / 2, 330, "redthing.png", -3);
-        mb3 = new Buildings(bg.getWidth() + 200, 330, "alamo.png", -3);
-        gr = new Buildings(0, 330, "grass.png", -3);
-        grd = new Buildings(0, 330, "grassD.png", -3);
-        tr = new Buildings(bg.getWidth() / 2 - 299, 329, "jTree.png", -3);
-        trd = new Buildings(bg.getWidth() / 2 - 299, 329, "jTreeD.png", -3);
-        sb1 = new Buildings(bg.getWidth() + 1200, 329, "hotelbackbuilding.png", -3);
-        sb2 = new Buildings(bg.getWidth() / 2, 329, "twobackbuildings.png", -3);
-        bb = new Buildings(0, 333, "blueb.png", -3);
-        cl = new Buildings(0, 411, "clouds.png", -3);
+        mb1 = new Buildings(bg.getWidth() + 1200, 330, "tower.png", true);
+        mb2 = new Buildings(bg.getWidth() / 2, 330, "redthing.png", true);
+        mb3 = new Buildings(bg.getWidth() + 200, 330, "alamo.png", true);
+        tr = new Buildings(bg.getWidth() / 2 - 299, 329, "jTree.png", true);
+        trd = new Buildings(bg.getWidth() / 2 - 299, 329, "jTreeD.png", true);
+        gr = new Buildings(0, 330, "grass.png", false);
+        grd = new Buildings(0, 330, "grassD.png", false);
+        sb1 = new Buildings(bg.getWidth() + 975, 329, "hotelbackbuilding.png", false);
+        sb2 = new Buildings(bg.getWidth() / 2, 329, "twobackbuildings.png", false);
+        bb = new Buildings(0, 333, "blueb.png", false);
+        cl = new Buildings(0, 411, "clouds.png", false);
         bird = new Bird(0, 324);
         //cam.setToOrtho(false, MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
         //zooms in to the bird
