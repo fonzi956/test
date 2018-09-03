@@ -7,7 +7,7 @@ import com.mygdx.game.MyGdxGame;
 
 public class Buildings {
     private static final int RIGHT = 1;
-    private static final int SPEED = -2;
+    private static final int SPEED = -3;
     private static final int left = -1;
     //private static final int SPEED = -2;
     private static final int MOVEMENT = 100;
@@ -15,8 +15,10 @@ public class Buildings {
     private Vector2 position;
     private Vector2 velocity;
     private Texture buildingone;
+    public float startX;
 
     public Buildings(float x, float y, String fil){
+        startX = x;
         position = new Vector2(x, y);
         velocity = new Vector2(0, 0);
         //String fil = "bmb.png";

@@ -25,8 +25,8 @@ public class Bird {
         //going right
         velocity.add(RIGHT, 0, 0);
         //if the bus goes pass the screen
-        if (position.x > MyGdxGame.WIDTH)
-            position.x = -21;
+        if (position.x - bird.getWidth() > MyGdxGame.WIDTH)
+            position.x = -425;
         velocity.scl(dt);
         position.add(SPEED, 0, 0);
 
@@ -49,9 +49,6 @@ public class Bird {
         return bird;
     }
 
-    public void reposition(float x, float y){
-        position.set(x, y, 0);
-    }
 
     public void dispose(){ bird.dispose(); }
 
