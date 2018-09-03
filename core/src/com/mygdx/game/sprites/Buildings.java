@@ -6,8 +6,8 @@ import com.badlogic.gdx.math.Vector3;
 import com.mygdx.game.MyGdxGame;
 
 public class Buildings {
-    private static final int RIGHT = 1;
-    private static final int SPEED = -3;
+    //private static final int RIGHT = 1;
+    private static int SPEED;
     private static final int left = -1;
     //private static final int SPEED = -2;
     private static final int MOVEMENT = 100;
@@ -17,8 +17,9 @@ public class Buildings {
     private Texture buildingone;
     public float startX;
 
-    public Buildings(float x, float y, String fil){
+    public Buildings(float x, float y, String fil, int speed){
         startX = x;
+        SPEED = speed;
         position = new Vector2(x, y);
         velocity = new Vector2(0, 0);
         //String fil = "bmb.png";

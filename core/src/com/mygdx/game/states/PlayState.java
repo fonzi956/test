@@ -28,6 +28,8 @@ public class PlayState extends State {
     private Buildings sb2;
     private Buildings bb;
     private Buildings cl;
+    private Buildings gr;
+    private Buildings grd;
     private Buildings tr;
     private Buildings trd;
     private Texture bg;
@@ -53,15 +55,17 @@ public class PlayState extends State {
         va = "VALID UNTIL";
         ti = mn + " 2:59 AM";
         bg = new Texture("Orbackground.png");
-        mb1 = new Buildings(bg.getWidth() + 1200, 330, "tower.png");
-        mb2 = new Buildings(bg.getWidth() / 2, 330, "redthing.png");
-        mb3 = new Buildings(bg.getWidth() + 200, 330, "alamo.png");
-        tr = new Buildings(925, 329, "trees.png");
-        trd = new Buildings(925, 329, "treesD.png");
-        sb1 = new Buildings(1150, 329, "hotelbackbuilding.png");
-        sb2 = new Buildings(925, 329, "twobackbuildings.png");
-        bb = new Buildings(0, 333, "blueb.png");
-        cl = new Buildings(0, 411, "clouds.png");
+        mb1 = new Buildings(bg.getWidth() + 1200, 330, "tower.png", -3);
+        mb2 = new Buildings(bg.getWidth() / 2, 330, "redthing.png", -3);
+        mb3 = new Buildings(bg.getWidth() + 200, 330, "alamo.png", -3);
+        gr = new Buildings(0, 330, "grass.png", -3);
+        grd = new Buildings(0, 330, "grassD.png", -3);
+        tr = new Buildings(bg.getWidth() / 2 - 475, 329, "jTree.png", -3);
+        trd = new Buildings(bg.getWidth() / 2 - 475, 329, "jTreeD.png", -3);
+        sb1 = new Buildings(1150, 329, "hotelbackbuilding.png", -3);
+        sb2 = new Buildings(925, 329, "twobackbuildings.png", -3);
+        bb = new Buildings(0, 333, "blueb.png", -3);
+        cl = new Buildings(0, 411, "clouds.png", -3);
         bird = new Bird(0, 324);
         //cam.setToOrtho(false, MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
         //zooms in to the bird
@@ -194,9 +198,11 @@ public class PlayState extends State {
         sb.draw(mb3.getTexture(), mb3.getPosition().x, mb3.getPosition().y);
         if(bgc == true){
             sb.draw(tr.getTexture(), tr.getPosition().x, tr.getPosition().y);
+            sb.draw(gr.getTexture(), gr.getPosition().x, gr.getPosition().y);
         }
         if(bgc == false){
             sb.draw(trd.getTexture(), trd.getPosition().x, trd.getPosition().y);
+            sb.draw(grd.getTexture(), grd.getPosition().x, grd.getPosition().y);
         }
         sb.draw(bird.getTexture(), bird.getPosition().x, bird.getPosition().y);
         //sb.draw(tube.getTopTube(), tube.getPosTopTube().x, tube.getPosTopTube().y);
@@ -223,6 +229,8 @@ public class PlayState extends State {
         mb1.dispose();
         mb2.dispose();
         mb3.dispose();
+        gr.dispose();
+        grd.dispose();
         tr.dispose();
         trd.dispose();
         sb1.dispose();
