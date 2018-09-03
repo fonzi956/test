@@ -6,7 +6,7 @@ import com.mygdx.game.MyGdxGame;
 
 public class Bird {
     private static final int RIGHT = 1;
-    private static final int SPEED = 5;
+    private static final int SPEED = 4;
     private static final int MOVEMENT = 100;
     private static final int GRAVITY = -15;
     private Vector3 position;
@@ -26,7 +26,7 @@ public class Bird {
         velocity.add(RIGHT, 0, 0);
         //if the bus goes pass the screen
         if (position.x - bird.getWidth() > MyGdxGame.WIDTH)
-            position.x = -425;
+            position.x = -555;//495
         velocity.scl(dt);
         position.add(SPEED, 0, 0);
 

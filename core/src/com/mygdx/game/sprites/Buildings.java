@@ -9,8 +9,8 @@ public class Buildings {
     //private static final int RIGHT = 1;
     private static final int left = -1;
     private static final int SPEED = -5;
+    private static final int SLOWSPEED = -4;
     private static final int MOVEMENT = 100;
-    private static final int GRAVITY = -15;
     private Vector2 position;
     private Vector2 velocity;
     private Texture buildingone;
@@ -22,7 +22,6 @@ public class Buildings {
         isfaster = faster;
         position = new Vector2(x, y);
         velocity = new Vector2(0, 0);
-        //String fil = "bmb.png";
         buildingone = new Texture(fil);
 
     }
@@ -45,7 +44,7 @@ public class Buildings {
         velocity.scl(dt);
         if (isfaster == true)
             position.add(SPEED, 0);
-        else position.add(-3, 0);
+        else position.add(SLOWSPEED, 0);
 
 
 //        if (position.y > 0)

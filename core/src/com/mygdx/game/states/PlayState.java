@@ -55,15 +55,15 @@ public class PlayState extends State {
         va = "VALID UNTIL";
         ti = mn + " 2:59 AM";
         bg = new Texture("Orbackground.png");
-        mb1 = new Buildings(bg.getWidth() + 1200, 330, "tower.png", true);
+        mb1 = new Buildings(bg.getWidth() + 1200, 328, "tower.png", true);
         mb2 = new Buildings(bg.getWidth() / 2, 330, "redthing.png", true);
         mb3 = new Buildings(bg.getWidth() + 200, 330, "alamo.png", true);
         tr = new Buildings(bg.getWidth() / 2 - 299, 329, "jTree.png", true);
         trd = new Buildings(bg.getWidth() / 2 - 299, 329, "jTreeD.png", true);
         gr = new Buildings(0, 330, "grass.png", false);
         grd = new Buildings(0, 330, "grassD.png", false);
-        sb1 = new Buildings(bg.getWidth() + 975, 329, "hotelbackbuilding.png", false);
-        sb2 = new Buildings(bg.getWidth() / 2, 329, "twobackbuildings.png", false);
+        sb1 = new Buildings(bg.getWidth() + 660, 329, "hotelbackbuilding.png", false);
+        sb2 = new Buildings(bg.getWidth() / 2 - 150, 329, "twobackbuildings.png", false);
         bb = new Buildings(0, 333, "blueb.png", false);
         cl = new Buildings(0, 411, "clouds.png", false);
         bird = new Bird(0, 324);
@@ -151,11 +151,11 @@ public class PlayState extends State {
         }
 
         if(cam.position.x - (cam.viewportWidth / 2) > sb1.getPosition().x + sb1.getTexture().getWidth()){
-            sb1.reposition(mb1.getPosition().x, sb1.getPosition().y);
+            sb1.reposition(mb1.getPosition().x - 420, sb1.getPosition().y);
         }
 
         if(cam.position.x - (cam.viewportWidth / 2) > sb2.getPosition().x + sb2.getTexture().getWidth()){
-            sb2.reposition(mb2.getPosition().x, sb2.getPosition().y);
+            sb2.reposition(mb2.getPosition().x - 200, sb2.getPosition().y);
         }
 
         if(cam.position.x - (cam.viewportWidth / 2) > bb.getPosition().x + bb.getTexture().getWidth()){
