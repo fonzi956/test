@@ -60,10 +60,10 @@ public class PlayState extends State {
         mb3 = new Buildings(bg.getWidth() + 200, 330, "alamo.png", -3);
         gr = new Buildings(0, 330, "grass.png", -3);
         grd = new Buildings(0, 330, "grassD.png", -3);
-        tr = new Buildings(bg.getWidth() / 2 - 475, 329, "jTree.png", -3);
-        trd = new Buildings(bg.getWidth() / 2 - 475, 329, "jTreeD.png", -3);
-        sb1 = new Buildings(1150, 329, "hotelbackbuilding.png", -3);
-        sb2 = new Buildings(925, 329, "twobackbuildings.png", -3);
+        tr = new Buildings(bg.getWidth() / 2 - 299, 329, "jTree.png", -3);
+        trd = new Buildings(bg.getWidth() / 2 - 299, 329, "jTreeD.png", -3);
+        sb1 = new Buildings(bg.getWidth() + 1200, 329, "hotelbackbuilding.png", -3);
+        sb2 = new Buildings(bg.getWidth() / 2, 329, "twobackbuildings.png", -3);
         bb = new Buildings(0, 333, "blueb.png", -3);
         cl = new Buildings(0, 411, "clouds.png", -3);
         bird = new Bird(0, 324);
@@ -143,19 +143,19 @@ public class PlayState extends State {
         }
 
         if(cam.position.x - (cam.viewportWidth / 2) > tr.getPosition().x + tr.getTexture().getWidth()){
-            tr.reposition(tr.getPosition().x + 1500, tr.getPosition().y);
+            tr.reposition(mb2.getPosition().x  - 250, tr.getPosition().y);
         }
 
         if(cam.position.x - (cam.viewportWidth / 2) > trd.getPosition().x + trd.getTexture().getWidth()){
-            trd.reposition(trd.getPosition().x + 1500, trd.getPosition().y);
+            trd.reposition(mb2.getPosition().x  - 250, trd.getPosition().y);
         }
 
         if(cam.position.x - (cam.viewportWidth / 2) > sb1.getPosition().x + sb1.getTexture().getWidth()){
-            sb1.reposition(sb1.getPosition().x + 1600, sb1.getPosition().y);
+            sb1.reposition(mb1.getPosition().x, sb1.getPosition().y);
         }
 
         if(cam.position.x - (cam.viewportWidth / 2) > sb2.getPosition().x + sb2.getTexture().getWidth()){
-            sb2.reposition(sb2.getPosition().x + 1600, sb2.getPosition().y);
+            sb2.reposition(mb2.getPosition().x, sb2.getPosition().y);
         }
 
         if(cam.position.x - (cam.viewportWidth / 2) > bb.getPosition().x + bb.getTexture().getWidth()){
