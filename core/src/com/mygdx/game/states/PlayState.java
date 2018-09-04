@@ -158,8 +158,8 @@ public class PlayState extends State {
             sb2.reposition(mb2.getPosition().x - 200, sb2.getPosition().y);
         }
 
-        if(cam.position.x - (cam.viewportWidth / 2) > bb.getPosition().x + bb.getTexture().getWidth()){
-            bb.reposition(bb.getPosition().x + 1500, bb.getPosition().y);
+        if(cam.position.x - (cam.viewportWidth / 2)>= bb.getPosition().x + bb.getTexture().getWidth()){
+            bb.reposition(bb.getPosition().x + 2000, bb.getPosition().y);
         }
 
         if(cam.position.x - (cam.viewportWidth / 2) > cl.getPosition().x + cl.getTexture().getWidth()){
