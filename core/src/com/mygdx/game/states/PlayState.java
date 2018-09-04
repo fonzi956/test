@@ -37,7 +37,7 @@ public class PlayState extends State {
     private String va;
     private String mn;
     private String ti;
-    private boolean bgc = false;
+    private boolean bgc = true;
     private Buildings bcl, lcl,scl, slcl, tcl;
 
     SpriteBatch batch;
@@ -65,7 +65,8 @@ public class PlayState extends State {
         grd = new Buildings(0, 330, "grassD.png", false);
         sb1 = new Buildings(bg.getWidth() + 660, 329, "hotelbackbuilding.png", false);
         sb2 = new Buildings(bg.getWidth() / 2 - 150, 329, "twobackbuildings.png", false);
-        bb = new Buildings(0, 333, "blueb.png", false);
+
+        bb = new Buildings(-790, 333, "blueb.png", false);
         bbe = new Texture("bluebe.png");
         bcl = new Buildings(50, 950, "bc.png", false);
         lcl = new Buildings(250, 696, "llc.png", false);
@@ -221,14 +222,15 @@ public class PlayState extends State {
         sb.draw(mb1.getTexture(), mb1.getPosition().x, mb1.getPosition().y);
         sb.draw(mb2.getTexture(), mb2.getPosition().x, mb2.getPosition().y);
         sb.draw(mb3.getTexture(), mb3.getPosition().x, mb3.getPosition().y);
-        if(bgc == true){
-            sb.draw(tr.getTexture(), tr.getPosition().x, tr.getPosition().y);
-            sb.draw(gr.getTexture(), gr.getPosition().x, gr.getPosition().y);
-        }
         if(bgc == false){
             sb.draw(trd.getTexture(), trd.getPosition().x, trd.getPosition().y);
             sb.draw(grd.getTexture(), grd.getPosition().x, grd.getPosition().y);
         }
+        if(bgc == true){
+            sb.draw(tr.getTexture(), tr.getPosition().x, tr.getPosition().y);
+            sb.draw(gr.getTexture(), gr.getPosition().x, gr.getPosition().y);
+        }
+
         sb.draw(bird.getTexture(), bird.getPosition().x, bird.getPosition().y);
 
         sb.draw(bg, 0,0);
