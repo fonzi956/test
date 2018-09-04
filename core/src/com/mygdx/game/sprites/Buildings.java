@@ -16,12 +16,15 @@ public class Buildings {
     private Texture buildingone;
     public float startX;
     public boolean isfaster;
+    public String name;
 
     public Buildings(float x, float y, String fil, boolean faster){
         startX = x;
+        name = fil;
         isfaster = faster;
         position = new Vector2(x, y);
         velocity = new Vector2(0, 0);
+
         buildingone = new Texture(fil);
 
     }
@@ -35,7 +38,6 @@ public class Buildings {
 //            position.x = -25;
 //        velocity.scl(dt);
 //        position.add(SPEED, 0, 0);
-
         velocity.add(left, 0);
         //here is when the building cross the x 0
 //        if (position.x == 0)
@@ -45,6 +47,7 @@ public class Buildings {
         if (isfaster == true)
             position.add(SPEED, 0);
         else position.add(SLOWSPEED, 0);
+
 
 
 //        if (position.y > 0)

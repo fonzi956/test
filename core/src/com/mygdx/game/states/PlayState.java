@@ -33,11 +33,12 @@ public class PlayState extends State {
     private Buildings tr;
     private Buildings trd;
     private Texture bg;
+    private Texture bbe;
     private String va;
     private String mn;
     private String ti;
     private boolean bgc = false;
-
+    private Buildings bcl, lcl,scl, slcl, tcl;
 
     SpriteBatch batch;
     BitmapFont font;
@@ -65,7 +66,12 @@ public class PlayState extends State {
         sb1 = new Buildings(bg.getWidth() + 660, 329, "hotelbackbuilding.png", false);
         sb2 = new Buildings(bg.getWidth() / 2 - 150, 329, "twobackbuildings.png", false);
         bb = new Buildings(0, 333, "blueb.png", false);
-        cl = new Buildings(0, 411, "clouds.png", false);
+        bbe = new Texture("bluebe.png");
+        bcl = new Buildings(50, 950, "bc.png", false);
+        lcl = new Buildings(250, 696, "llc.png", false);
+        scl = new Buildings(850, 811, "sc.png", false);
+        slcl = new Buildings(425, 743, "slc.png", false);
+        tcl = new Buildings(725, 555, "threelc.png", false);
         bird = new Bird(0, 324);
         //cam.setToOrtho(false, MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
         //zooms in to the bird
@@ -120,7 +126,11 @@ public class PlayState extends State {
         sb1.update(dt);
         sb2.update(dt);
         bb.update(dt);
-        cl.update(dt);
+        bcl.update(dt);
+        lcl.update(dt);
+        scl.update(dt);
+        slcl.update(dt);
+        tcl.update(dt);
         bird.update(dt);
 
 
@@ -162,13 +172,27 @@ public class PlayState extends State {
             bb.reposition(bb.getPosition().x + 2000, bb.getPosition().y);
         }
 
-        if(cam.position.x - (cam.viewportWidth / 2) > cl.getPosition().x + cl.getTexture().getWidth()){
-            cl.reposition(cl.getPosition().x + 1500, cl.getPosition().y);
+        //bcl, lcl, scl, slcl,tcl
+        if(cam.position.x - (cam.viewportWidth / 2) > bcl.getPosition().x + bcl.getTexture().getWidth()){
+            bcl.reposition(bcl.getPosition().x + 1500, bcl.getPosition().y);
         }
 
-//        if(cam.position.x - (cam.viewportWidth / 2) > bird.getPosition().x + bird.getTexture().getWidth()){
-//            bird.reposition(mb2.getPosition().x + 1500, bird.getPosition().y);
-//        }
+        if(cam.position.x - (cam.viewportWidth / 2) > lcl.getPosition().x + lcl.getTexture().getWidth()){
+            lcl.reposition(lcl.getPosition().x + 1500, lcl.getPosition().y);
+        }
+
+        if(cam.position.x - (cam.viewportWidth / 2) > scl.getPosition().x + scl.getTexture().getWidth()){
+            scl.reposition(scl.getPosition().x + 1500, scl.getPosition().y);
+        }
+
+        if(cam.position.x - (cam.viewportWidth / 2) > slcl.getPosition().x + slcl.getTexture().getWidth()){
+            slcl.reposition(slcl.getPosition().x + 1500, slcl.getPosition().y);
+        }
+
+        if(cam.position.x - (cam.viewportWidth / 2) > tcl.getPosition().x + tcl.getTexture().getWidth()){
+            tcl.reposition(tcl.getPosition().x + 1500, tcl.getPosition().y);
+        }
+
 
         cam.update();
 
@@ -184,12 +208,13 @@ public class PlayState extends State {
         sb.setProjectionMatrix(cam.combined);
         sb.begin();
 
-//        for (Tube tube : tubes) {
-//            sb.draw(tube.getTopTube(), tube.getPosTopTube().x, tube.getPosTopTube().y);
-//            sb.draw(tube.getBottomTube(), tube.getPosBotTube().x, tube.getPosBotTube().y);
-//        }
-
-        sb.draw(cl.getTexture(), cl.getPosition().x, cl.getPosition().y);
+        //bcl, lcl, scl, slcl,tcl
+        sb.draw(bcl.getTexture(), bcl.getPosition().x, bcl.getPosition().y);
+        sb.draw(lcl.getTexture(), lcl.getPosition().x, lcl.getPosition().y);
+        sb.draw(scl.getTexture(), scl.getPosition().x, scl.getPosition().y);
+        sb.draw(slcl.getTexture(), slcl.getPosition().x, slcl.getPosition().y);
+        sb.draw(tcl.getTexture(), tcl.getPosition().x, tcl.getPosition().y);
+        sb.draw(bbe, 0, 333);
         sb.draw(bb.getTexture(), bb.getPosition().x, bb.getPosition().y);
         sb.draw(sb1.getTexture(), sb1.getPosition().x, sb1.getPosition().y);
         sb.draw(sb2.getTexture(), sb2.getPosition().x, sb2.getPosition().y);
@@ -205,8 +230,7 @@ public class PlayState extends State {
             sb.draw(grd.getTexture(), grd.getPosition().x, grd.getPosition().y);
         }
         sb.draw(bird.getTexture(), bird.getPosition().x, bird.getPosition().y);
-        //sb.draw(tube.getTopTube(), tube.getPosTopTube().x, tube.getPosTopTube().y);
-        //sb.draw(tube.getBottomTube(), tube.getPosBotTube().x, tube.getPosBotTube().y);
+
         sb.draw(bg, 0,0);
         sb.end();
         batch.begin();
@@ -225,6 +249,7 @@ public class PlayState extends State {
 
     @Override
     public void dispose() {
+        //bcl, lcl, scl, slcl,tcl
         bg.dispose();
         mb1.dispose();
         mb2.dispose();
@@ -236,7 +261,13 @@ public class PlayState extends State {
         sb1.dispose();
         sb2.dispose();
         bb.dispose();
-        cl.dispose();
+        bbe.dispose();
+        bcl.dispose();
+        lcl.dispose();
+        scl.dispose();
+        slcl.dispose();
+        tcl.dispose();
+
 
     }
 }
