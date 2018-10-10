@@ -46,7 +46,7 @@ public class PlayState extends State {
     BitmapFont bfont;
 
 
-    public PlayState(GameStateManager gsm) {
+    public PlayState(GameStateManager gsm, String text) {
         super(gsm);
 
         Date dt = new Date();
@@ -56,7 +56,7 @@ public class PlayState extends State {
         mn = new SimpleDateFormat("MMM dd, yyyy").format(c.getTime());
         va = "VALID UNTIL";
         ti = mn + " 2:59 AM";
-        ri = "E5";
+        ri = text;
         bg = new Texture("OrbackgroundE5.png");
         mb1 = new Buildings(bg.getWidth() + 1200, 328, "tower.png", true);
         mb2 = new Buildings(bg.getWidth() / 2, 330, "redthing.png", true);
