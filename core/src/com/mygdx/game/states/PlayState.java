@@ -37,6 +37,7 @@ public class PlayState extends State {
     private String va;
     private String mn;
     private String ti;
+    private String ri;
     private boolean bgc = true;
     private Buildings bcl, lcl,scl, slcl, tcl;
 
@@ -55,7 +56,8 @@ public class PlayState extends State {
         mn = new SimpleDateFormat("MMM dd, yyyy").format(c.getTime());
         va = "VALID UNTIL";
         ti = mn + " 2:59 AM";
-        bg = new Texture("Orbackground.png");
+        ri = "E5";
+        bg = new Texture("OrbackgroundE5.png");
         mb1 = new Buildings(bg.getWidth() + 1200, 328, "tower.png", true);
         mb2 = new Buildings(bg.getWidth() / 2, 330, "redthing.png", true);
         mb3 = new Buildings(bg.getWidth() + 200, 330, "alamo.png", true);
@@ -81,8 +83,12 @@ public class PlayState extends State {
         //tworiders
 
         batch = new SpriteBatch();
-        font = new BitmapFont(Gdx.files.internal("myfont.fnt"));
-        bfont = new BitmapFont(Gdx.files.internal("myBlodfont.fnt"));
+        //for small LG
+        font = new BitmapFont(Gdx.files.internal("smallfont.fnt"));
+        bfont = new BitmapFont(Gdx.files.internal("smallboldfont.fnt"));
+        //for med size lg
+//        font = new BitmapFont(Gdx.files.internal("myfont.fnt"));
+//        bfont = new BitmapFont(Gdx.files.internal("myBlodfont.fnt"));
         bfont.setColor(Color.WHITE);
         font.setColor(Color.WHITE);
         //font.getData().setScale(1.2f);
@@ -239,9 +245,13 @@ public class PlayState extends State {
         //desktop
 //        font.draw(batch, va, 100, 700);
 //        font.draw(batch, ti, 100, 670);
-        //phone
-        font.draw(batch, va, 235, 1063);
-        bfont.draw(batch, ti, 85, 1024);
+        //phone small LG
+        font.draw(batch, va, 150, 700);
+        bfont.draw(batch, ti, 32, 670);
+        bfont.draw(batch, ri, 393, 162);
+        //phone alex SAM
+//        font.draw(batch, va, 235, 1145);
+//        bfont.draw(batch, ti, 85, 1100);
 
         //phone with two riders
 //        font.draw(batch, va, 235, 1058);
