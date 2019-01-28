@@ -248,6 +248,7 @@ public class PlayState extends State {
         //phone small LG
         font.draw(batch, va, 150, 700);
         bfont.draw(batch, ti, 32, 670);
+        //the ri code x = 393 ,x = 385
         bfont.draw(batch, ri, 393, 162);
         //phone alex SAM
 //        font.draw(batch, va, 235, 1145);
