@@ -38,7 +38,9 @@ public class PlayState extends State {
     private String mn;
     private String ti;
     private String ri;
+    int num = 0;
     private boolean bgc = true;
+    private  boolean posi;
     private Buildings bcl, lcl,scl, slcl, tcl;
 
     SpriteBatch batch;
@@ -56,7 +58,16 @@ public class PlayState extends State {
         mn = new SimpleDateFormat("MMM dd, yyyy").format(c.getTime());
         va = "VALID UNTIL";
         ti = mn + " 2:59 AM";
-        ri = text;
+        if(text.length() == 2){
+            ri = text;
+            posi = true;
+        }
+        else {
+            if(text.substring(0, 1) == "-") posi = false;
+            num = Integer.parseInt(text.substring(1, 2));
+            ri = text.substring(2, 4);
+        }
+
         bg = new Texture("OrbackgroundE5.png");
         mb1 = new Buildings(bg.getWidth() + 1200, 328, "tower.png", true);
         mb2 = new Buildings(bg.getWidth() / 2, 330, "redthing.png", true);
@@ -249,7 +260,8 @@ public class PlayState extends State {
         font.draw(batch, va, 150, 700);
         bfont.draw(batch, ti, 32, 670);
         //the ri code x = 393 ,x = 385
-        bfont.draw(batch, ri, 393, 162);
+        if(posi) bfont.draw(batch, ri, 392, 162);
+        if(!posi) bfont.draw(batch, ri, 392-num, 162);
         //phone alex SAM
 //        font.draw(batch, va, 235, 1145);
 //        bfont.draw(batch, ti, 85, 1100);
