@@ -8,8 +8,8 @@ import com.mygdx.game.MyGdxGame;
 public class Buildings {
     //private static final int RIGHT = 1;
     private static final int left = -1;
-    private static final int SPEED = -5;
-    private static final int SLOWSPEED = -4;
+    private static final int SPEED = -2;
+    private static final int SLOWSPEED = -3;
     private static final int MOVEMENT = 100;
     private Vector2 position;
     private Vector2 velocity;
@@ -17,11 +17,12 @@ public class Buildings {
     public float startX;
     public boolean isfaster;
     public String name;
+    public  int fst;
 
-    public Buildings(float x, float y, String fil, boolean faster){
+    public Buildings(float x, float y, String fil, int faster){
         startX = x;
         name = fil;
-        isfaster = faster;
+        fst = faster;
         position = new Vector2(x, y);
         velocity = new Vector2(0, 0);
 
@@ -44,9 +45,10 @@ public class Buildings {
 //
 //            position.x = MyGdxGame.WIDTH;
         velocity.scl(dt);
-        if (isfaster == true)
-            position.add(SPEED, 0);
-        else position.add(SLOWSPEED, 0);
+        position.add(fst, 0);
+//        if (isfaster == true)
+//            position.add(SPEED, 0);
+//        else position.add(SLOWSPEED, 0);
 
 
 

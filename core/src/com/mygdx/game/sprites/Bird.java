@@ -6,7 +6,7 @@ import com.mygdx.game.MyGdxGame;
 
 public class Bird {
     private static final int RIGHT = 1;
-    private static final int SPEED = 4;
+    public int SPEED = 4;
     private static final int MOVEMENT = 100;
     private static final int GRAVITY = -15;
     private Vector3 position;
@@ -14,10 +14,11 @@ public class Bird {
 
     private Texture bird;
 
-    public Bird(int x, int y){
+    public Bird(int x, int y, int fast){
         position = new Vector3(x, y, 0);
         velocity = new Vector3(0, 0, 0);
         bird = new Texture("bus.png");
+        SPEED = fast;
     }
 
     public void update(float dt){
